@@ -18,7 +18,7 @@ func TestGetAPIKey(t *testing.T) {
 				"Authorization": {"ApiKey testKey"},
 			},
 			expectedKey: "testKey",
-			wantErr:     true,
+			wantErr:     false,
 		},
 		{
 			name:        "No Authorization Header",
