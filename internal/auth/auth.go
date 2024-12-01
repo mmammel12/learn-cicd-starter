@@ -1,3 +1,4 @@
+// Package auth -
 package auth
 
 import (
@@ -6,6 +7,7 @@ import (
 	"strings"
 )
 
+// ErrNoAuthHeaderIncluded -
 var ErrNoAuthHeaderIncluded = errors.New("no authorization header included")
 
 // GetAPIKey -
