@@ -36,3 +36,8 @@ jobs:
 
             - name: go fmt
               run: test -z $(go fmt ./...)
+
+            - name: staticcheck
+              uses: dominikh/staticcheck-action@v1
+              with:
+                  version: 'latest'
