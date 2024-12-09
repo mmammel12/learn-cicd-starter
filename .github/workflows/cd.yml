@@ -22,14 +22,6 @@ jobs:
             - name: Build
               run: ./scripts/buildprod.sh
 
-    gcloud:
-        name: setup-gcloud
-        runs-on: ubuntu-latest
-
-        steps:
-            - name: Check out code
-              uses: actions/checkout@v4
-
             - id: 'auth'
               uses: 'google-github-actions/auth@v2'
               with:
