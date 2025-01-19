@@ -10,6 +10,9 @@ jobs:
         name: Deploy
         runs-on: ubuntu-latest
 
+        env:
+            DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
         steps:
             - name: Check out code
               uses: actions/checkout@v4
@@ -19,8 +22,17 @@ jobs:
               with:
                   go-version: '1.23.0'
 
+            - name: Install Goose
+              run: go install github.com/pressly/goose/v3/cmd/goose@latest
+
+            - name: Verify installation
+              run: goose --version
+
             - name: Build
               run: ./scripts/buildprod.sh
+
+            - name: Run migrations
+              run: ./scripts/migrateup.sh
 
             - id: 'auth'
               uses: 'google-github-actions/auth@v2'
